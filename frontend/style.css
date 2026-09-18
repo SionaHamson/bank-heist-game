@@ -1,1 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0f14;
+    color: white;
+    min-height: 100vh;
+}
+
+.screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#mission-screen {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.85)
+    );
+}
+
+.mission-box {
+    width: 90%;
+    max-width: 650px;
+    padding: 45px;
+    text-align: center;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.mission-box h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.mission-box h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.mission-text {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.game-button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #1e88e5;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.game-button:hover {
+    transform: scale(1.03);
+}
+
+#game-screen {
+    display: block;
+    padding: 0;
+}
+
+.game-header {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 30px;
+    background: #151c24;
+    border-bottom: 2px solid #394957;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.game-info {
+    display: flex;
+    gap: 15px;
+}
+
+.info-box {
+    padding: 10px 15px;
+    background: #202a35;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.game-area {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+}
+
+.game-area h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.game-area > p {
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.challenge-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.challenge {
+    padding: 12px 20px;
+    background: #202a35;
+    border-radius: 8px;
+}
+
+.challenge.active {
+    border: 2px solid #1e88e5;
+}
+
+.game-content {
+    min-height: 350px;
+    padding: 40px;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-content h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.game-content p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#game-over-screen,
+#complete-screen {
+    background: #0b0f14;
+}
+
+.result-box {
+    width: 90%;
+    max-width: 600px;
+    padding: 45px;
+    text-align: center;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+}
+
+.result-box h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.result-box h2 {
+    margin-bottom: 20px;
+}
+
+.result-box p {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+@media (max-width: 600px) {
+    .mission-box,
+    .result-box {
+        padding: 25px;
+    }
+
+    .mission-box h1 {
+        font-size: 32px;
+    }
+
+    .game-header {
+        padding: 12px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .game-info {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .game-content {
+        padding: 25px;
+    }
+}
