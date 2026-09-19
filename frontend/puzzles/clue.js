@@ -1,43 +1,71 @@
-// Challenge 1 - Find the Hidden Clue
+// Challenge 1 - The Security Desk
 
-function showClueChallenge() {
-    return {
-        title: "Find the Hidden Clue",
-        message: "Find the object that contains the first vault clue.",
-        objects: [
-            {
-                name: "Security Camera",
-                correct: true,
-                clue: "The first digit is equal to the number of active security cameras.",
-                value: 4
-            },
-            {
-                name: "Office Chair",
-                correct: false
-            },
-            {
-                name: "Desk Lamp",
-                correct: false
-            },
-            {
-                name: "Plant",
-                correct: false
-            }
-        ]
-    };
-}
+const securityDesk = {
 
-function checkClue(object) {
-    if (object.correct) {
+    title: "🔎 The Security Desk",
+
+    story:
+        "You enter the bank's security room. " +
+        "A security log is left open on the desk.",
+
+    clue:
+        "The first vault digit is the number of cameras that are still watching.",
+
+    cameraLog: [
+        {
+            camera: "Camera 1",
+            status: "ACTIVE"
+        },
+        {
+            camera: "Camera 2",
+            status: "ACTIVE"
+        },
+        {
+            camera: "Camera 3",
+            status: "OFFLINE"
+        },
+        {
+            camera: "Camera 4",
+            status: "ACTIVE"
+        },
+        {
+            camera: "Camera 5",
+            status: "ACTIVE"
+        }
+    ],
+
+    correctAnswer: 4,
+
+    hint:
+        "Count only the cameras marked ACTIVE."
+};
+
+
+// Check the player's answer
+function checkSecurityAnswer(answer) {
+
+    const playerAnswer = Number(answer);
+
+    if (playerAnswer === securityDesk.correctAnswer) {
+
         return {
             correct: true,
-            message: object.clue,
-            digit: object.value
+            message: "✅ Security log decoded.",
+            digit: securityDesk.correctAnswer
+        };
+
+    } else {
+
+        return {
+            correct: false,
+            message: "❌ Incorrect. Check the camera statuses carefully."
         };
     }
+}
 
-    return {
-        correct: false,
-        message: "Nothing useful here. Keep searching!"
-    };
+
+// Get the hint
+function getSecurityHint() {
+
+    return securityDesk.hint;
 }
