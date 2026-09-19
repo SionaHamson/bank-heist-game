@@ -1,31 +1,39 @@
-// Challenge 2 - Guard's Locker
+// Challenge 2 - The Guard's Locker
 
-const lockerPuzzle = {
-    title: "🔐 Guard's Locker",
+const guardLocker = {
+
+    title: "🔐 The Guard's Locker",
 
     story:
-        "The guard never writes his password directly.",
+        "You enter the guard room and find a locked locker. " +
+        "Several patrol records are kept nearby.",
 
     clue:
-        "I only need the letter that comes after G.",
+        "The second digit of the final vault code is the number " +
+        "of checkpoints on the guard's patrol route that passes the vault.",
 
-    alphabetHint: {
-        A: 1,
-        B: 2,
-        C: 3,
-        D: 4,
-        E: 5,
-        F: 6,
-        G: 7,
-        H: 8
-    },
+    patrolRoutes: [
+        {
+            route: "Route A",
+            checkpoints: 5
+        },
+        {
+            route: "Route B",
+            checkpoints: 6
+        },
+        {
+            route: "Route C",
+            checkpoints: 8
+        }
+    ],
+
+    vaultRoute: "Route C",
 
     correctAnswer: 8,
 
-    maxAttempts: 3,
-
     hint:
-        "Look at the alphabet. What letter comes immediately after G?"
+        "First find which patrol route passes the vault. " +
+        "Then check how many checkpoints are on that route."
 };
 
 
@@ -34,19 +42,21 @@ function checkLockerAnswer(answer) {
 
     const playerAnswer = Number(answer);
 
-    if (playerAnswer === lockerPuzzle.correctAnswer) {
+    if (playerAnswer === guardLocker.correctAnswer) {
 
         return {
             correct: true,
-            message: "🔓 Locker unlocked!",
-            digit: 8
+            message:
+                "✅ Correct! You found the second digit of the vault code.",
+            digit: guardLocker.correctAnswer
         };
 
     } else {
 
         return {
             correct: false,
-            message: "❌ Incorrect. The locker remains locked."
+            message:
+                "❌ Incorrect. Check the patrol routes and checkpoints."
         };
     }
 }
@@ -54,5 +64,6 @@ function checkLockerAnswer(answer) {
 
 // Get the hint
 function getLockerHint() {
-    return lockerPuzzle.hint;
+
+    return guardLocker.hint;
 }
