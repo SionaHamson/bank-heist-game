@@ -9,7 +9,8 @@ const securityDesk = {
         "A security log is left open on the desk.",
 
     clue:
-        "The first vault digit is the number of cameras that are still watching.",
+        "The first digit of the final vault code is the number " +
+        "of cameras that are still watching.",
 
     cameraLog: [
         {
@@ -50,7 +51,8 @@ function checkSecurityAnswer(answer) {
 
         return {
             correct: true,
-            message: "✅ Security log decoded.",
+            message:
+                "✅ Correct! You found the first digit of the vault code.",
             digit: securityDesk.correctAnswer
         };
 
@@ -58,7 +60,8 @@ function checkSecurityAnswer(answer) {
 
         return {
             correct: false,
-            message: "❌ Incorrect. Check the camera statuses carefully."
+            message:
+                "❌ Incorrect. Check the camera statuses carefully."
         };
     }
 }
