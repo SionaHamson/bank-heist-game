@@ -367,3 +367,59 @@ body {
     font-size: 20px;
     margin-top: 20px;
 }
+/* FIX: Security Room Clickable Hotspots */
+
+.room-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 0;
+}
+
+.security-room {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.room-object {
+    position: absolute !important;
+    z-index: 10;
+    cursor: pointer;
+    border: 3px solid transparent;
+    background: rgba(30, 136, 229, 0.15);
+    color: white;
+    border-radius: 8px;
+    font-size: 0;
+}
+
+.room-object:hover {
+    border-color: white;
+    background: rgba(30, 136, 229, 0.35);
+}
+
+/* CCTV - upper left */
+.cctv-object {
+    top: 17%;
+    left: 7%;
+    width: 20%;
+    height: 22%;
+}
+
+/* Computer - left desk */
+.computer-object {
+    top: 30%;
+    left: 5%;
+    width: 32%;
+    height: 30%;
+}
+
+/* Confidential files - right desk */
+.files-object {
+    top: 38%;
+    left: 72%;
+    width: 22%;
+    height: 25%;
+}
