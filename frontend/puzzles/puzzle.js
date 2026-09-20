@@ -1,3 +1,5 @@
+const successSound = new Audio("../assets/sounds/success.mp3");
+const errorSound = new Audio("../assets/sounds/error.mp3");
 // Challenge 2 – Security Terminal Puzzle
 
 function startChallenge2() {
@@ -63,7 +65,8 @@ function checkPuzzleAnswer() {
         document.getElementById("puzzle-message");
 
     if (answer === "48") {
-
+successSound.currentTime = 0;
+successSound.play();
         window.clue2 = 8;
 
         message.innerHTML = `
@@ -91,7 +94,10 @@ function checkPuzzleAnswer() {
             startChallenge3();
         }, 1200);
 
-    } else {
+  } else {
+
+    errorSound.currentTime = 0;
+    errorSound.play();
 
     score = Math.max(0, score - 50);
 
