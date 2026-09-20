@@ -1,66 +1,43 @@
-// Challenge 3 - The Manager's Office
+// Challenge 3 – Final Vault Logic
+// Member 2 – Puzzle/Game Logic
 
-const managerOffice = {
+const finalVault = {
 
-    title: "🔐 The Manager's Office",
+    title: "🔐 Final Security Vault",
 
     story:
-        "You enter the bank manager's office. " +
-        "A locked digital safe sits on the desk. " +
-        "Nearby, you find an incident report and a transaction ledger.",
+        "The final vault requires the third digit " +
+        "before the security code can be completed.",
 
     clue:
-        "Find the transaction that happened at the same time as the " +
-        "security incident. Its transaction code opens the safe.",
+        "The third digit of the vault code is equal to " +
+        "the number of files marked CONFIDENTIAL.",
 
-    incidentTime: "02:17 AM",
+    confidentialFiles: 7,
 
-    transactions: [
-        {
-            time: "01:42 AM",
-            transactionCode: "417"
-        },
-        {
-            time: "02:17 AM",
-            transactionCode: "532"
-        },
-        {
-            time: "03:05 AM",
-            transactionCode: "816"
-        }
-    ],
+    correctAnswer: 7,
 
-    correctSafeCode: "532",
-
-    finalClue:
-        "The third digit of the final vault code is the digit " +
-        "in the safe code that matches the hour of the incident.",
-
-    vaultDigit: 2,
+    thirdDigit: 7,
 
     hint:
-        "Compare the incident time with the transaction times. " +
-        "The matching transaction gives you the safe code."
+        "Count the files marked CONFIDENTIAL."
 };
 
 
-// Check the manager's safe code
-function checkSafeCode(code) {
+// Check Challenge 3 answer
+function checkVaultClue(answer) {
 
-    const playerCode = String(code).trim();
+    const playerAnswer = Number(answer);
 
-    if (playerCode === managerOffice.correctSafeCode) {
+    if (playerAnswer === finalVault.correctAnswer) {
 
         return {
             correct: true,
 
             message:
-                "🔓 Safe unlocked! " +
-                "Now examine the incident hour to find the third vault digit.",
+                "✅ Correct! You found the third digit.",
 
-            finalClue: managerOffice.finalClue,
-
-            vaultDigit: managerOffice.vaultDigit
+            digit: finalVault.thirdDigit
         };
 
     } else {
@@ -69,22 +46,21 @@ function checkSafeCode(code) {
             correct: false,
 
             message:
-                "❌ Incorrect code. Compare the incident time " +
-                "with the transaction ledger."
+                "❌ Incorrect. Count the CONFIDENTIAL files carefully."
         };
     }
 }
 
 
-// Get the manager's office information
-function getManagerOffice() {
+// Get the vault hint
+function getVaultHint() {
 
-    return managerOffice;
+    return finalVault.hint;
 }
 
 
-// Get the hint
-function getSafeHint() {
+// Get the number of confidential files
+function getConfidentialFileCount() {
 
-    return managerOffice.hint;
+    return finalVault.confidentialFiles;
 }
