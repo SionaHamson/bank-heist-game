@@ -1,3 +1,4 @@
+const successSound = new Audio("../assets/sounds/success.mp3");
 // Challenge 3 – Crack the Vault
 
 function startChallenge3() {
@@ -98,7 +99,8 @@ function unlockVault() {
 
 
     if (answer === correctCode) {
-
+successSound.currentTime = 0;
+successSound.play();
         score += 100;
 
         updateScore();
