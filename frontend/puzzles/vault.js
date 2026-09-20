@@ -1,7 +1,12 @@
 const successSound = new Audio("../assets/sounds/success.mp3");
+
+let vaultAttempts = 3;
+
 // Challenge 3 – Crack the Vault
 
 function startChallenge3() {
+
+    vaultAttempts = 3;
 
     const gameContent = document.getElementById("game-content");
 
@@ -77,6 +82,11 @@ function startChallenge3() {
 
         </div>
 
+        <p>
+            🔢 Attempts remaining:
+            <strong id="vault-attempts">3</strong>
+        </p>
+
         <p id="vault-message"></p>
     `;
 }
@@ -99,8 +109,10 @@ function unlockVault() {
 
 
     if (answer === correctCode) {
-successSound.currentTime = 0;
-successSound.play();
+
+        successSound.currentTime = 0;
+        successSound.play();
+
         score += 100;
 
         updateScore();
@@ -130,6 +142,8 @@ successSound.play();
 
     } else {
 
+        vaultAttempts--;
+
         score -= 50;
 
         if (score < 0) {
@@ -138,7 +152,45 @@ successSound.play();
 
         updateScore();
 
-        message.innerHTML =
-            "❌ ACCESS DENIED — Incorrect vault code. 50 points deducted.";
+        const attemptsDisplay =
+            document.getElementById("vault-attempts");
+
+        if (attemptsDisplay) {
+            attemptsDisplay.textContent = vaultAttempts;
+        }
+
+
+        if (vaultAttempts <= 0) {
+
+            message.innerHTML = `
+                🚨 <strong>SECURITY LOCKOUT</strong><br><br>
+                Too many incorrect attempts.<br>
+                The vault has been locked.
+            `;
+
+            const input =
+                document.getElementById("vault-answer");
+
+            const button =
+                document.querySelector(".vault-button");
+
+            if (input) {
+                input.disabled = true;
+            }
+
+            if (button) {
+                button.disabled = true;
+            }
+
+
+        } else {
+
+            message.innerHTML =
+                "❌ ACCESS DENIED — Incorrect vault code.<br><br>" +
+                "⚠️ <strong>-50 points</strong><br><br>" +
+                "🔢 Attempts remaining: <strong>" +
+                vaultAttempts +
+                "</strong>";
+        }
     }
 }
