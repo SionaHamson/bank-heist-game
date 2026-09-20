@@ -105,9 +105,14 @@ function checkPuzzleAnswer() {
 
 function showPuzzleHint() {
 
+    score = Math.max(0, score - 100);
+
+    updateScore();
+
     const message =
         document.getElementById("puzzle-message");
 
     message.innerHTML =
-        "💡 HINT: Each number is multiplied by 2.";
+        "💡 HINT: Each number is multiplied by 2.<br><br>" +
+        "⚠️ <strong>-100 points</strong>";
 }
