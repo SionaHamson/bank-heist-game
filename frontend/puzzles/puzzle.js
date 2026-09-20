@@ -1,69 +1,70 @@
-// Challenge 2 - The Guard's Locker
+// Challenge 2 – Security Terminal Logic
+// Member 2 – Puzzle/Game Logic
 
-const guardLocker = {
+const securityTerminal = {
 
-    title: "🔐 The Guard's Locker",
+    title: "🔢 Security Terminal",
 
     story:
-        "You enter the guard room and find a locked locker. " +
-        "Several patrol records are kept nearby.",
+        "A security terminal displays an encrypted number sequence.",
 
     clue:
-        "The second digit of the final vault code is the number " +
-        "of checkpoints on the guard's patrol route that passes the vault.",
+        "Find the missing number in the sequence.",
 
-    patrolRoutes: [
-        {
-            route: "Route A",
-            checkpoints: 5
-        },
-        {
-            route: "Route B",
-            checkpoints: 6
-        },
-        {
-            route: "Route C",
-            checkpoints: 8
-        }
+    sequence: [
+        3,
+        6,
+        12,
+        24,
+        "?"
     ],
 
-    vaultRoute: "Route C",
+    correctAnswer: 48,
 
-    correctAnswer: 8,
+    secondDigit: 8,
 
     hint:
-        "First find which patrol route passes the vault. " +
-        "Then check how many checkpoints are on that route."
+        "Each number is multiplied by 2."
 };
 
 
-// Check the player's answer
-function checkLockerAnswer(answer) {
+// Check Challenge 2 answer
+function checkTerminalAnswer(answer) {
 
     const playerAnswer = Number(answer);
 
-    if (playerAnswer === guardLocker.correctAnswer) {
+    if (playerAnswer === securityTerminal.correctAnswer) {
 
         return {
             correct: true,
+
             message:
-                "✅ Correct! You found the second digit of the vault code.",
-            digit: guardLocker.correctAnswer
+                "✅ Correct! The missing number is 48.",
+
+            digit: securityTerminal.secondDigit
         };
 
     } else {
 
         return {
             correct: false,
+
             message:
-                "❌ Incorrect. Check the patrol routes and checkpoints."
+                "❌ Incorrect. Look at the pattern carefully."
         };
     }
 }
 
 
-// Get the hint
-function getLockerHint() {
+// Get Challenge 2 hint
+function getTerminalHint() {
 
-    return guardLocker.hint;
+    return securityTerminal.hint;
+}
+
+
+// Get the sequence
+function getSecuritySequence() {
+
+    return securityTerminal.sequence;
 }
