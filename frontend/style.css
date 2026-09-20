@@ -423,3 +423,27 @@ body {
     width: 28%;
     height: 20%;
 }
+/* TIMER WARNING EFFECT */
+
+.timer-warning {
+    color: orange !important;
+}
+
+.timer-critical {
+    color: red !important;
+    animation: timerPulse 1s infinite;
+}
+
+@keyframes timerPulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
