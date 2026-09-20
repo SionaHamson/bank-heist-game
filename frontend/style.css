@@ -219,3 +219,44 @@ body {
         padding: 25px;
     }
 }
+/* Security Terminal */
+
+.terminal-box {
+    width: 90%;
+    max-width: 650px;
+    margin: 25px auto;
+    background: #080b0f;
+    border: 3px solid #394957;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+.terminal-header {
+    background: #202a35;
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.terminal-screen {
+    background: #050805;
+    color: #39ff88;
+    padding: 30px;
+    min-height: 250px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.terminal-screen h2 {
+    margin: 25px 0;
+    letter-spacing: 3px;
+}
+
+.terminal-screen input {
+    padding: 12px;
+    width: 180px;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
