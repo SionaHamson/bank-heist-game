@@ -93,9 +93,14 @@ function checkPuzzleAnswer() {
 
     } else {
 
-        message.innerHTML =
-            "❌ ACCESS DENIED — Incorrect number. Try again.";
-    }
+    score = Math.max(0, score - 50);
+
+    updateScore();
+
+    message.innerHTML =
+        "❌ ACCESS DENIED — Incorrect number.<br><br>" +
+        "⚠️ <strong>-50 points</strong><br><br>" +
+        "Try again.";
 }
 
 function showPuzzleHint() {
