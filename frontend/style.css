@@ -389,15 +389,16 @@ body {
     position: absolute !important;
     z-index: 20;
     cursor: pointer;
-
-    border: 3px solid white;
-    background: rgba(0, 120, 255, 0.25);
-
-    color: white;
+    border: 2px solid transparent;
+    background: transparent;
+    color: transparent;
     border-radius: 8px;
+    font-size: 0;
+}
 
-    font-size: 14px;
-    font-weight: bold;
+.room-object:hover {
+    border-color: transparent;
+    background: transparent;
 }
 /* CCTV MONITOR - screens on the LEFT wall */
 .cctv-object {
