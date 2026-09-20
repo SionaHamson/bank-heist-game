@@ -60,7 +60,6 @@ function startTimer() {
     }, 1000);
 }
 
-
 function updateTimer() {
 
     const minutes = Math.floor(timeRemaining / 60);
@@ -74,9 +73,21 @@ function updateTimer() {
 
     timerDisplay.textContent =
         `${formattedMinutes}:${formattedSeconds}`;
+
+    timerDisplay.classList.remove(
+        "timer-warning",
+        "timer-critical"
+    );
+
+    if (timeRemaining <= 30) {
+
+        timerDisplay.classList.add("timer-critical");
+
+    } else if (timeRemaining <= 60) {
+
+        timerDisplay.classList.add("timer-warning");
+    }
 }
-
-
 function updateScore() {
 
     scoreDisplay.textContent = score;
