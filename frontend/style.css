@@ -442,7 +442,58 @@ body {
     50% {
         opacity: 0.4;
     }
+/* VICTORY SCREEN */
 
+#complete-screen {
+    text-align: center;
+}
+
+#complete-screen .result-box {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: rgba(10, 15, 25, 0.95);
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.35);
+    animation: victoryAppear 0.8s ease;
+}
+
+#complete-screen h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#complete-screen h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+#complete-screen p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+#complete-screen strong {
+    font-size: 22px;
+}
+
+#complete-screen .game-button {
+    margin-top: 25px;
+    min-width: 180px;
+}
+
+@keyframes victoryAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
     100% {
         opacity: 1;
     }
