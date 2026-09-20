@@ -20,7 +20,9 @@ const gameOverScore = document.getElementById("game-over-score");
 const finalScore = document.getElementById("final-score");
 const finalTime = document.getElementById("final-time");
 
+
 startButton.addEventListener("click", function () {
+
     missionScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
 
@@ -29,66 +31,93 @@ startButton.addEventListener("click", function () {
 
     updateTimer();
     updateScore();
+
     startTimer();
 });
 
+
 function startTimer() {
+
     clearInterval(timerInterval);
 
     timerInterval = setInterval(function () {
+
         timeRemaining--;
 
         updateTimer();
 
         if (timeRemaining <= 0) {
+
             clearInterval(timerInterval);
+
             timeRemaining = 0;
+
             updateTimer();
+
             showGameOver();
         }
+
     }, 1000);
 }
 
+
 function updateTimer() {
+
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
 
-    const formattedMinutes = String(minutes).padStart(2, "0");
-    const formattedSeconds = String(seconds).padStart(2, "0");
+    const formattedMinutes =
+        String(minutes).padStart(2, "0");
+
+    const formattedSeconds =
+        String(seconds).padStart(2, "0");
 
     timerDisplay.textContent =
         `${formattedMinutes}:${formattedSeconds}`;
 }
 
+
 function updateScore() {
+
     scoreDisplay.textContent = score;
 }
 
+
 function showGameOver() {
+
     clearInterval(timerInterval);
 
     gameScreen.classList.add("hidden");
+
     gameOverScreen.classList.remove("hidden");
 
     gameOverScore.textContent = score;
 }
 
+
 function showLevelComplete() {
+
     clearInterval(timerInterval);
 
     gameScreen.classList.add("hidden");
+
     completeScreen.classList.remove("hidden");
 
     finalScore.textContent = score;
 
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
+    const minutes =
+        Math.floor(timeRemaining / 60);
+
+    const seconds =
+        timeRemaining % 60;
 
     finalTime.textContent =
         `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
+
 function resetGame() {
+
     clearInterval(timerInterval);
 
     timeRemaining = 300;
@@ -99,17 +128,27 @@ function resetGame() {
 
     gameOverScreen.classList.add("hidden");
     completeScreen.classList.add("hidden");
+
     missionScreen.classList.remove("hidden");
 }
 
+
 restartButton.addEventListener("click", function () {
+
     resetGame();
+
 });
+
 
 playAgainButton.addEventListener("click", function () {
+
     resetGame();
+
 });
 
+
 continueButton.addEventListener("click", function () {
-    alert("Challenge 1 will be connected here.");
+
+    startChallenge1();
+
 });
