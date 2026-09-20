@@ -399,27 +399,26 @@ body {
     font-size: 14px;
     font-weight: bold;
 }
-
-/* CCTV camera - left side */
+/* CCTV - top right camera */
 .cctv-object {
-    top: 25%;
-    left: 5%;
-    width: 15%;
-    height: 22%;
+    top: 5%;
+    left: 82%;
+    width: 13%;
+    height: 18%;
 }
 
-/* Computer - desk on left */
+/* Computer - monitor on left desk */
 .computer-object {
-    top: 8%;
+    top: 45%;
     left: 8%;
-    width: 30%;
-    height: 32%;
+    width: 25%;
+    height: 20%;
 }
 
-/* Confidential files - desk on right */
+/* Confidential files - bottom right desk */
 .files-object {
-    top: 55%;
-    left: 78%;
-    width: 20%;
-    height: 25%;
+    top: 78%;
+    left: 72%;
+    width: 25%;
+    height: 18%;
 }
