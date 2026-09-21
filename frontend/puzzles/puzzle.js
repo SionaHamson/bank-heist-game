@@ -108,6 +108,7 @@ successSound.play();
         "⚠️ <strong>-50 points</strong><br><br>" +
         "Try again.";
 }
+}
 
 function showPuzzleHint() {
 
