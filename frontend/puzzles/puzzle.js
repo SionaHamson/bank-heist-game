@@ -1,70 +1,124 @@
-// Challenge 2 – Security Terminal Logic
-// Member 2 – Puzzle/Game Logic
+const successSound = new Audio("../assets/sounds/success.mp3");
+const errorSound = new Audio("../assets/sounds/error.mp3");
+// Challenge 2 – Security Terminal Puzzle
 
-const securityTerminal = {
+function startChallenge2() {
 
-    title: "🔢 Security Terminal",
+    const gameContent = document.getElementById("game-content");
 
-    story:
-        "A security terminal displays an encrypted number sequence.",
+    gameContent.innerHTML = `
+        <h3>🔢 SECURITY TERMINAL</h3>
 
-    clue:
-        "Find the missing number in the sequence.",
+        <p>
+            The security system requires the missing number
+            to continue.
+        </p>
 
-    sequence: [
-        3,
-        6,
-        12,
-        24,
-        "?"
-    ],
+        <div class="terminal-box">
 
-    correctAnswer: 48,
+            <div class="terminal-header">
+                🔒 SECURITY ACCESS SYSTEM
+            </div>
 
-    secondDigit: 8,
+            <div class="terminal-screen">
 
-    hint:
-        "Each number is multiplied by 2."
-};
+                <p>ENCRYPTED NUMBER SEQUENCE:</p>
 
+                <h2>3 → 6 → 12 → 24 → ?</h2>
 
-// Check Challenge 2 answer
-function checkTerminalAnswer(answer) {
+                <p>
+                    Enter the next number.
+                </p>
 
-    const playerAnswer = Number(answer);
+                <input
+                    type="number"
+                    id="puzzle-answer"
+                    placeholder="Enter answer"
+                >
 
-    if (playerAnswer === securityTerminal.correctAnswer) {
+                <button
+                    class="game-button"
+                    onclick="checkPuzzleAnswer()">
+                    SUBMIT
+                </button>
 
-        return {
-            correct: true,
+                <button
+                    class="game-button"
+                    onclick="showPuzzleHint()">
+                    💡 HINT
+                </button>
 
-            message:
-                "✅ Correct! The missing number is 48.",
+                <p id="puzzle-message"></p>
 
-            digit: securityTerminal.secondDigit
-        };
+            </div>
 
-    } else {
-
-        return {
-            correct: false,
-
-            message:
-                "❌ Incorrect. Look at the pattern carefully."
-        };
-    }
+        </div>
+    `;
 }
 
+function checkPuzzleAnswer() {
 
-// Get Challenge 2 hint
-function getTerminalHint() {
+    const answer =
+        document.getElementById("puzzle-answer").value;
 
-    return securityTerminal.hint;
+    const message =
+        document.getElementById("puzzle-message");
+
+    if (answer === "48") {
+successSound.currentTime = 0;
+successSound.play();
+        window.clue2 = 8;
+
+        message.innerHTML = `
+            ✅ ACCESS GRANTED!<br><br>
+            The answer is <strong>48</strong>.<br>
+            Your second digit is <strong>8</strong>.
+        `;
+
+        const challenge2 =
+            document.getElementById("challenge2-status");
+
+        if (challenge2) {
+            challenge2.classList.remove("active");
+            challenge2.textContent = "✅ Challenge 2";
+        }
+
+        const challenge3 =
+            document.getElementById("challenge3-status");
+
+        if (challenge3) {
+            challenge3.classList.add("active");
+        }
+
+        setTimeout(function () {
+            startChallenge3();
+        }, 1200);
+
+  } else {
+
+    errorSound.currentTime = 0;
+    errorSound.play();
+
+    score = Math.max(0, score - 50);
+
+    updateScore();
+
+    message.innerHTML =
+        "❌ ACCESS DENIED — Incorrect number.<br><br>" +
+        "⚠️ <strong>-50 points</strong><br><br>" +
+        "Try again.";
 }
 
+function showPuzzleHint() {
 
-// Get the sequence
-function getSecuritySequence() {
+    score = Math.max(0, score - 100);
 
-    return securityTerminal.sequence;
+    updateScore();
+
+    const message =
+        document.getElementById("puzzle-message");
+
+    message.innerHTML =
+        "💡 HINT: Each number is multiplied by 2.<br><br>" +
+        "⚠️ <strong>-100 points</strong>";
 }
