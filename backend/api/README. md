@@ -1,0 +1,17 @@
+markdown
+# Bank Heist API Integration
+
+This folder contains the frontend-backend integration work
+for The Bank Heist – Crack the Vault game.
+
+## Purpose
+
+The API integration will allow the frontend game
+to communicate with the Flask backend.
+
+## Planned Integration
+
+- Retrieve game data
+- Send challenge answers
+- Receive validation results
+- Connect frontend and backend
