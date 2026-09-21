@@ -5,41 +5,26 @@ let vaultAttempts = 3;
 // Challenge 3 – Crack the Vault
 
 function startChallenge3() {
-
-    vaultAttempts = 3;
-
     const gameContent = document.getElementById("game-content");
 
     gameContent.innerHTML = `
-
         <h3>🔐 FINAL SECURITY VAULT</h3>
 
         <p>
             The vault is locked.
-            Find the final clue and enter the correct security code.
+            Find the final clue and enter the security code.
         </p>
 
         <div class="vault-room">
-
             <div class="vault-door">
-
-                <div class="vault-top">
-                    BANK SECURITY VAULT
-                </div>
+                <div class="vault-top">BANK SECURITY VAULT</div>
 
                 <div class="vault-circle">
-
-                    <div class="vault-lock">
-                        🔒
-                    </div>
-
+                    <div class="vault-lock">🔒</div>
                 </div>
 
                 <div class="vault-panel">
-
-                    <div class="vault-display">
-                        ENTER CODE
-                    </div>
+                    <div class="vault-display">ENTER CODE</div>
 
                     <input
                         type="number"
@@ -53,31 +38,47 @@ function startChallenge3() {
                         onclick="unlockVault()">
                         🔓 UNLOCK
                     </button>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="final-clue">
 
-            <h3>📄 FINAL SECURITY NOTE</h3>
+            <h3>📂 SECURITY FILE DATABASE</h3>
 
             <p>
-                The third digit of the vault code is equal to
-                the number of files marked
-                <strong>CONFIDENTIAL</strong>.
+                A security report has been left beside the vault.
+                Some files are marked with different security levels.
+            </p>
+
+            <div class="file-list">
+
+                <p>01 — Staff Record — NORMAL</p>
+                <p>02 — CCTV Report — CONFIDENTIAL</p>
+                <p>03 — Financial Report — RESTRICTED</p>
+                <p>04 — Incident Report — CONFIDENTIAL</p>
+                <p>05 — Staff Record — NORMAL</p>
+                <p>06 — Vault Report — CONFIDENTIAL</p>
+                <p>07 — CCTV Report — NORMAL</p>
+                <p>08 — Investigation Report — CONFIDENTIAL</p>
+                <p>09 — Financial Report — RESTRICTED</p>
+                <p>10 — Security Log — CONFIDENTIAL</p>
+                <p>11 — Staff Record — NORMAL</p>
+                <p>12 — Vault Access Report — CONFIDENTIAL</p>
+                <p>13 — CCTV Report — NORMAL</p>
+                <p>14 — Investigation Report — CONFIDENTIAL</p>
+                <p>15 — Security Log — CONFIDENTIAL</p>
+
+            </div>
+
+            <p>
+                <strong>SECURITY NOTE:</strong><br>
+                "The final digit is hidden in the
+                classification of the files."
             </p>
 
             <p>
-                📁 Confidential files found:
-                <strong>7</strong>
-            </p>
-
-            <p>
-                The third digit is:
-                <strong>7</strong>
+                Count the files marked "CONFIDENTIAL".
             </p>
 
         </div>

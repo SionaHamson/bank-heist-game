@@ -1,74 +1,119 @@
-// Challenge 1 - The Security Desk
+// Challenge 1 – Realistic Security Room
 
-const securityDesk = {
+function startChallenge1() {
+    const gameContent = document.getElementById("game-content");
 
-    title: "🔎 The Security Desk",
+    gameContent.innerHTML = `
+        <h3>🔎 SEARCH THE SECURITY ROOM</h3>
 
-    story:
-        "You enter the bank's security room. " +
-        "A security log is left open on the desk.",
+        <p>Click the objects in the room to search for clues.</p>
 
-    clue:
-        "The first digit of the final vault code is the number " +
-        "of cameras that are still watching.",
+        <div class="room-container">
 
-    cameraLog: [
-        {
-            camera: "Camera 1",
-            status: "ACTIVE"
-        },
-        {
-            camera: "Camera 2",
-            status: "ACTIVE"
-        },
-        {
-            camera: "Camera 3",
-            status: "OFFLINE"
-        },
-        {
-            camera: "Camera 4",
-            status: "ACTIVE"
-        },
-        {
-            camera: "Camera 5",
-            status: "ACTIVE"
-        }
-    ],
+            <img
+                src="../assets/images/security-room.png"
+                alt="Realistic bank security room"
+                class="security-room"
+            >
 
-    correctAnswer: 4,
+            <button class="room-object cctv-object"
+                    onclick="inspectCCTV()">
+                📹
+            </button>
 
-    hint:
-        "Count only the cameras marked ACTIVE."
-};
+            <button class="room-object computer-object"
+                    onclick="inspectComputer()">
+                💻
+            </button>
 
+            <button class="room-object files-object"
+                    onclick="inspectFiles()">
+                📁
+            </button>
 
-// Check the player's answer
-function checkSecurityAnswer(answer) {
+        </div>
 
-    const playerAnswer = Number(answer);
-
-    if (playerAnswer === securityDesk.correctAnswer) {
-
-        return {
-            correct: true,
-            message:
-                "✅ Correct! You found the first digit of the vault code.",
-            digit: securityDesk.correctAnswer
-        };
-
-    } else {
-
-        return {
-            correct: false,
-            message:
-                "❌ Incorrect. Check the camera statuses carefully."
-        };
-    }
+        <p id="room-message">
+            🔎 Search the room carefully.
+        </p>
+    `;
 }
 
+function inspectCCTV() {
 
-// Get the hint
-function getSecurityHint() {
+    const message = document.getElementById("room-message");
 
-    return securityDesk.hint;
+    message.innerHTML = `
+        📹 <strong>CCTV MONITOR</strong><br><br>
+
+        The security monitor is displaying the status
+        of the bank's surveillance cameras.<br><br>
+
+        Camera 1 — 🟢 ACTIVE<br>
+        Camera 2 — 🟢 ACTIVE<br>
+        Camera 3 — 🔴 OFFLINE<br>
+        Camera 4 — 🟢 ACTIVE<br>
+        Camera 5 — 🟢 ACTIVE<br><br>
+
+        <em>Something about the active cameras seems important...</em>
+    `;
+
+    window.clue1 = 4;
+}
+function inspectComputer() {
+
+    const message = document.getElementById("room-message");
+
+    message.innerHTML = `
+        💻 <strong>SECURITY COMPUTER</strong><br><br>
+        The computer is locked.<br>
+        A message on the screen says:<br><br>
+        <em>"Check the CCTV system for active camera information."</em>
+    `;
+}
+
+function inspectFiles() {
+
+    const message = document.getElementById("room-message");
+
+    window.clue1 = 4;
+
+    message.innerHTML = `
+        📁 <strong>SECURITY FILE FOUND!</strong><br><br>
+
+        The file contains a security report:<br><br>
+
+        <em>
+        "The vault security code is based on
+        information recorded by the security system."
+        </em><br><br>
+
+        <em>
+        The report may contain a useful piece of the
+        vault code...
+        </em><br><br>
+
+        <button class="game-button" onclick="finishChallenge1()">
+            ✅ CONTINUE
+        </button>
+    `;
+}
+function finishChallenge1() {
+
+    const challenge1 =
+        document.getElementById("challenge1-status");
+
+    if (challenge1) {
+        challenge1.classList.remove("active");
+        challenge1.textContent = "✅ Challenge 1";
+    }
+
+    const challenge2 =
+        document.getElementById("challenge2-status");
+
+    if (challenge2) {
+        challenge2.classList.add("active");
+    }
+
+    startChallenge2();
 }
