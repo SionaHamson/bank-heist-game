@@ -66,7 +66,7 @@ function startChallenge3() {
                 <p>11 — Staff Record — NORMAL</p>
                 <p>12 — Vault Access Report — CONFIDENTIAL</p>
                 <p>13 — CCTV Report — NORMAL</p>
-                <p>14 — Investigation Report — CONFIDENTIAL</p>
+                <p>14 — Investigation Report — NORMAL</p>
                 <p>15 — Security Log — CONFIDENTIAL</p>
 
             </div>
