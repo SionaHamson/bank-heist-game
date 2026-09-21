@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bank Heist - Crack the Vault</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MISSION SCREEN -->
+
+    <div id="mission-screen" class="screen">
+
+        <div class="mission-box">
+
+            <h1>🔐 BANK HEIST</h1>
+
+            <h2>CRACK THE VAULT</h2>
+
+            <p class="mission-text">
+                You are trapped inside the bank security room.
+            </p>
+
+            <p class="mission-text">
+                The security system will lock down in
+                <strong>5 minutes.</strong>
+            </p>
+
+            <p class="mission-text">
+                Find the clues, solve the puzzles,
+                and unlock the vault before time runs out.
+            </p>
+
+            <button id="start-btn" class="game-button">
+                START GAME
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN GAME SCREEN -->
+
+    <div id="game-screen" class="screen hidden">
+
+        <header class="game-header">
+
+            <div class="game-title">
+                🔐 BANK HEIST
+            </div>
+
+            <div class="game-info">
+
+                <div class="info-box">
+                    ⏱️ TIME:
+                    <span id="timer">05:00</span>
+                </div>
+
+                <div class="info-box">
+                    ⭐ SCORE:
+                    <span id="score">1000</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="game-area">
+
+            <h2>BANK SECURITY ROOM</h2>
+
+            <p>
+                Find the clues and unlock the vault.
+            </p>
+
+
+            <div class="challenge-bar">
+
+                <div id="challenge1-status" class="challenge active">
+                    🔎 Challenge 1
+                </div>
+
+                <div id="challenge2-status" class="challenge">
+                    🔢 Challenge 2
+                </div>
+
+                <div id="challenge3-status" class="challenge">
+                    🔐 Challenge 3
+                </div>
+
+            </div>
+
+
+            <section id="game-content" class="game-content">
+
+                <h3>Security Room</h3>
+
+                <p>
+                    Your mission begins here.
+                </p>
+
+                <p>
+                    Find the hidden clue to discover the first digit.
+                </p>
+
+                <button id="continue-btn" class="game-button">
+                    START CHALLENGE 1
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- GAME OVER SCREEN -->
+
+   <div id="game-over-screen" class="screen hidden">
+
+    <div class="result-box">
+
+        <h1>⏰ TIME'S UP!</h1>
+
+        <h2>🔐 VAULT REMAINS LOCKED</h2>
+
+        <p>
+            The 5-minute mission has ended.
+        </p>
+
+        <p>
+            The bank security system has activated
+            the lockdown.
+        </p>
+
+        <p>
+            Final Score:
+            <strong id="game-over-score">0</strong>
+        </p>
+
+        <button id="restart-btn" class="game-button">
+            🔄 TRY AGAIN
+        </button>
+
+    </div>
+
+</div>
+    <!-- LEVEL COMPLETE SCREEN -->
+
+    <div id="complete-screen" class="screen hidden">
+
+        <div class="result-box">
+
+            <h1>🔓 VAULT UNLOCKED!</h1>
+
+            <h2>MISSION COMPLETE 🎉</h2>
+
+            <p>
+                You successfully cracked the vault.
+            </p>
+
+            <p>
+                Final Score:
+                <strong id="final-score">0</strong>
+            </p>
+
+            <p>
+                Time Remaining:
+                <strong id="final-time">00:00</strong>
+            </p>
+
+            <button id="play-again-btn" class="game-button">
+                PLAY AGAIN
+            </button>
+
+        </div>
+
+    </div>
+
+
+<script src="puzzles/clue.js"></script>
+<script src="puzzles/puzzle.js"></script>
+<script src="puzzles/vault.js"></script>
+<script src="main.js"></script>
+    
+</body>
+
+</html>

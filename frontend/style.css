@@ -1,0 +1,500 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0f14;
+    color: white;
+    min-height: 100vh;
+}
+
+.screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#mission-screen {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.85)
+    );
+}
+
+.mission-box {
+    width: 90%;
+    max-width: 650px;
+    padding: 45px;
+    text-align: center;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.mission-box h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.mission-box h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.mission-text {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.game-button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #1e88e5;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.game-button:hover {
+    transform: scale(1.03);
+}
+
+#game-screen {
+    display: block;
+    padding: 0;
+}
+
+.game-header {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 30px;
+    background: #151c24;
+    border-bottom: 2px solid #394957;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.game-info {
+    display: flex;
+    gap: 15px;
+}
+
+.info-box {
+    padding: 10px 15px;
+    background: #202a35;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.game-area {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+}
+
+.game-area h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.game-area > p {
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.challenge-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.challenge {
+    padding: 12px 20px;
+    background: #202a35;
+    border-radius: 8px;
+}
+
+.challenge.active {
+    border: 2px solid #1e88e5;
+}
+
+.game-content {
+    min-height: 350px;
+    padding: 40px;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-content h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.game-content p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#game-over-screen,
+#complete-screen {
+    background: #0b0f14;
+}
+
+.result-box {
+    width: 90%;
+    max-width: 600px;
+    padding: 45px;
+    text-align: center;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 15px;
+}
+
+.result-box h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.result-box h2 {
+    margin-bottom: 20px;
+}
+
+.result-box p {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+@media (max-width: 600px) {
+    .mission-box,
+    .result-box {
+        padding: 25px;
+    }
+
+    .mission-box h1 {
+        font-size: 32px;
+    }
+
+    .game-header {
+        padding: 12px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .game-info {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .game-content {
+        padding: 25px;
+    }
+}
+/* Security Terminal */
+
+.terminal-box {
+    width: 90%;
+    max-width: 650px;
+    margin: 25px auto;
+    background: #080b0f;
+    border: 3px solid #394957;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+.terminal-header {
+    background: #202a35;
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.terminal-screen {
+    background: #050805;
+    color: #39ff88;
+    padding: 30px;
+    min-height: 250px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.terminal-screen h2 {
+    margin: 25px 0;
+    letter-spacing: 3px;
+}
+
+.terminal-screen input {
+    padding: 12px;
+    width: 180px;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
+/* Realistic Vault */
+
+.vault-room {
+    width: 100%;
+    max-width: 700px;
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.vault-door {
+    width: 420px;
+    min-height: 430px;
+    background: linear-gradient(145deg, #303840, #11161b);
+    border: 8px solid #59636d;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,0.8),
+        0 0 30px rgba(0,0,0,0.8);
+}
+
+.vault-top {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #d5dbe0;
+    margin-bottom: 25px;
+}
+
+.vault-circle {
+    width: 190px;
+    height: 190px;
+    margin: auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #555f68, #171c20);
+    border: 10px solid #707b84;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 25px #000;
+}
+
+.vault-lock {
+    font-size: 55px;
+}
+
+.vault-panel {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.vault-display {
+    background: #050805;
+    color: #39ff88;
+    font-family: monospace;
+    font-size: 20px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 2px solid #26352b;
+}
+
+.vault-panel input {
+    width: 180px;
+    padding: 12px;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 8px;
+    background: #111;
+    color: white;
+    border: 2px solid #59636d;
+    border-radius: 6px;
+}
+
+.vault-button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 30px;
+    background: #263238;
+    color: white;
+    border: 2px solid #707b84;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.vault-button:hover {
+    background: #394750;
+}
+
+.final-clue {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 20px;
+    background: #151c24;
+    border: 2px solid #394957;
+    border-radius: 10px;
+}
+
+.final-clue h3 {
+    margin-bottom: 15px;
+}
+
+#vault-message {
+    font-size: 20px;
+    margin-top: 20px;
+}
+/* Security Room - Correct Hotspot Positions */
+
+.room-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 0;
+}
+
+.security-room {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* All clickable areas */
+.room-object {
+    position: absolute !important;
+    z-index: 20;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: transparent;
+    color: transparent;
+    border-radius: 8px;
+    font-size: 0;
+}
+
+.room-object:hover {
+    border-color: transparent;
+    background: transparent;
+}
+/* CCTV MONITOR - screens on the LEFT wall */
+.cctv-object {
+    top: 25%;
+    left: 0%;
+    width: 28%;
+    height: 30%;
+}
+
+/* COMPUTER - computer on the LEFT desk */
+.computer-object {
+    top: 52%;
+    left: 0%;
+    width: 25%;
+    height: 22%;
+}
+
+/* CONFIDENTIAL FILES - files on the RIGHT desk */
+.files-object {
+    top: 78%;
+    left: 70%;
+    width: 28%;
+    height: 20%;
+}
+/* TIMER WARNING EFFECT */
+
+.timer-warning {
+    color: orange !important;
+}
+
+.timer-critical {
+    color: red !important;
+    animation: timerPulse 1s infinite;
+}
+
+@keyframes timerPulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+/* VICTORY SCREEN */
+
+#complete-screen {
+    text-align: center;
+}
+
+#complete-screen .result-box {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: rgba(10, 15, 25, 0.95);
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.35);
+    animation: victoryAppear 0.8s ease;
+}
+
+#complete-screen h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#complete-screen h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+#complete-screen p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+#complete-screen strong {
+    font-size: 22px;
+}
+
+#complete-screen .game-button {
+    margin-top: 25px;
+    min-width: 180px;
+}
+
+@keyframes victoryAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+    100% {
+        opacity: 1;
+    }
+}
